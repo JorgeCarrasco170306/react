@@ -1,11 +1,19 @@
-export const PreviousSearches = () => {
+interface Props {
+  previousTerms: string[];
+
+  onLabelClicked: (term: string) => void;
+}
+
+export const PreviousSearches = ({ previousTerms, onLabelClicked }: Props) => {
   return (
     <div className="previous-searches">
       <h2>Búsquedas previas</h2>
       <ul className="previous-searches-list">
-        <li>Goku</li>
-        <li>The last of us</li>
-        <li>God of war</li>
+        {previousTerms.map((term) => (
+          <li onClick={() => onLabelClicked(term)} key={term}>
+            {term}
+          </li>
+        ))}
       </ul>
     </div>
   );

@@ -1,0 +1,11 @@
+
+
+import axios from 'axios';
+
+export const GiphyApi = axios.create({
+    baseURL: "https://api.giphy.com/v1/gifs",
+    params: {
+        lang: 'es',
+        api_key: import.meta.env.VITE_API_KEY
+    }
+});
